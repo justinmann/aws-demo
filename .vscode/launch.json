@@ -7,9 +7,13 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "nodemon",
+            "runtimeExecutable": "nodemon",
             "program": "${workspaceFolder}/dist/app.js",
-            "preLaunchTask": "npm: build"
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "preLaunchTask": "watch"
         }
     ]
 }
