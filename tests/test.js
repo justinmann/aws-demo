@@ -2,15 +2,14 @@
 
 const supertest = require('supertest'); 
 const test = require('unit.js');
-const app = require('../app.js');
-
-const request = supertest(app);
+const app = require('../dist/app.js');
+const request = supertest(app.default);
 
 describe('Tests app', function() {
   it('verifies get', function(done) {
     request.get('/').expect(200).end(function(err, result) {
       test.string(result.text).contains('Congratulations');
-      test.value(result).hasHeader('content-type', 'text/html');
+      test.value(result).hasHeader('content-type', 'text/html; charset=UTF-8');
       done(err);
     });
   });

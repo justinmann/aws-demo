@@ -16,7 +16,7 @@
     "build": "npm run build-ts && npm run tslint",
     "build-ts": "tsc",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "test": "mocha --recursive tests --exit"
+    "test": "npm run build && mocha --recursive tests --exit"
   },
   "dependencies": {
     "express": "^4.16.2"
