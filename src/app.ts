@@ -1,4 +1,13 @@
 import express from "express";
+import wasm from "./foo.clist";
+
+interface WASMTEST {
+    _sayHello(): void;
+}
+
+wasm.initialize().then((module: WASMTEST) => {
+    module._sayHello();
+});
 
 const port = process.env.PORT || 3000;
 
