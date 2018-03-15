@@ -1,12 +1,14 @@
 import express from "express";
 import wasm from "./foo.clist";
+import fs from "fs";
 
-interface WASMTEST {
-    _sayHello(): void;
-}
+const data = fs.readFileSync("dist/foo.wasm");
+const fooModule = {
+    wasmBinary: data
+};
 
-wasm.initialize().then((module: WASMTEST) => {
-    module._sayHello();
+wasm.initialize(fooModule).then(module => {
+    module.asm._sayHello();
 });
 
 const port = process.env.PORT || 3000;
