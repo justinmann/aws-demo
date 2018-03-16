@@ -1,6 +1,5 @@
 // ./foo.clist.d.ts
 export interface Assembly {
-    _sayHello() : void;
     // ... add declarations of exported function here.
 }
 
@@ -8,6 +7,7 @@ export interface Assembly {
 
 export interface Module {
    asm : Assembly;
+   handleRequest(req: any, res: any) : void;
 }
 
 export interface ModuleLoader {

@@ -20,7 +20,7 @@ module.exports = {
           loader: 'emcc-loader',
           options: {
             buildDir: path.resolve(__dirname, '../dist'),
-            commonFlags: [ '-O2' ],
+            commonFlags: [ '-O2', '--bind' ],
             cFlags: [ '-std=c11' ],
             cxxFlags: [ '-std=c++14' ],
             ldFlags: [
