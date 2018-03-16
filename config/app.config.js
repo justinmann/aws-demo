@@ -33,7 +33,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js', '.clist' ]
+    extensions: [ '.tsx', '.ts', '.js' ]
   },
   output: {
     filename: 'app.js',

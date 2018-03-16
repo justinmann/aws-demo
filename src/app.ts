@@ -1,20 +1,32 @@
 import express from "express";
-import wasm from "./foo.clist";
+import cppWASM from "./cppController.clist";
 import fs from "fs";
+import jsController from "./jsController";
+import fakeService from "./fakeService";
 
 const port = process.env.PORT || 3000;
 const app = express();
+const NS_PER_SEC = 1e9;
 
-const data = fs.readFileSync("dist/foo.wasm");
-const fooModule = {
-    wasmBinary: data
-};
+cppWASM.initialize({
+    wasmBinary: fs.readFileSync("dist/cppController.wasm")
+}).then(cppController => {
+    app.get("/cpp", (req, res) => {
+        const start = process.hrtime();
 
-wasm.initialize(fooModule).then(fooModule => {
-    app.get("/wasm", (req, res) => {
-        fooModule.handleRequest(req, function(s: string) { res.send(s); });
+        cppController.handleRequest(req, function(s: string) { res.send(s); }, fakeService);
+
+        const delta = process.hrtime(start);
+        console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
     });
-    app.use(express.static("public"));
+    app.get("/js", (req, res) => {
+        const start = process.hrtime();
+
+        jsController.handleRequest(req, res);
+
+        const delta = process.hrtime(start);
+        console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
+    });
     app.listen(port, () => console.log("Example app listening on port " + port));
 });
 

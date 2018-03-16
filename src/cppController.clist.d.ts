@@ -1,4 +1,4 @@
-// ./foo.clist.d.ts
+// ./cppController.clist.d.ts
 export interface Assembly {
     // ... add declarations of exported function here.
 }
@@ -7,7 +7,7 @@ export interface Assembly {
 
 export interface Module {
    asm : Assembly;
-   handleRequest(req: any, res: any) : void;
+   handleRequest(req: any, res: any, service: any) : void;
 }
 
 export interface ModuleLoader {
