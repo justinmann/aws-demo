@@ -7,7 +7,8 @@ export interface Assembly {
 
 export interface Module {
    asm : Assembly;
-   handleRequest(req: any, res: any, service: any) : void;
+   handleRequestHyperscript(req: any, res: any, service: any) : void;
+   handleRequestString(req: any, res: any, service: any) : void;
 }
 
 export interface ModuleLoader {

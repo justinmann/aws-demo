@@ -11,21 +11,45 @@ const NS_PER_SEC = 1e9;
 cppWASM.initialize({
     wasmBinary: fs.readFileSync("dist/cppController.wasm")
 }).then(cppController => {
-    app.get("/cpp", (req, res) => {
+    app.get("/cpp-hyperscript", (req, res) => {
         const start = process.hrtime();
 
-        cppController.handleRequest(req, function(s: string) { res.send(s); }, fakeService);
+        cppController.handleRequestHyperscript(req, function(s: string) { res.send(s); }, fakeService);
 
         const delta = process.hrtime(start);
-        console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
+        // console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
     });
-    app.get("/js", (req, res) => {
+    app.get("/cpp-string", (req, res) => {
         const start = process.hrtime();
 
-        jsController.handleRequest(req, res);
+        cppController.handleRequestString(req, function(s: string) { res.send(s); }, fakeService);
 
         const delta = process.hrtime(start);
-        console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
+        // console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
+    });
+    app.get("/js-hyperscript", (req, res) => {
+        const start = process.hrtime();
+
+        jsController.handleRequestHyperscript(req, res);
+
+        const delta = process.hrtime(start);
+        // console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
+    });
+    app.get("/js-handlebars", (req, res) => {
+        const start = process.hrtime();
+
+        jsController.handleRequestHandlebars(req, res);
+
+        const delta = process.hrtime(start);
+        // console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
+    });
+    app.get("/js-string", (req, res) => {
+        const start = process.hrtime();
+
+        jsController.handleRequestString(req, res);
+
+        const delta = process.hrtime(start);
+        // console.log(`${delta[0] * NS_PER_SEC + delta[1]}ns`);
     });
     app.listen(port, () => console.log("Example app listening on port " + port));
 });

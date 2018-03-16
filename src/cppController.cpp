@@ -47,7 +47,7 @@ void h::render(std::stringstream& ss) {
 
 EMSCRIPTEN_KEEPALIVE
 
-void handleRequest(es::val req, es::val res, es::val service) {
+void handleRequestHyperscript(es::val req, es::val res, es::val service) {
     auto raw = service["getData"]().as<std::string>();
 
     rj::Document document;
@@ -69,6 +69,26 @@ void handleRequest(es::val req, es::val res, es::val service) {
     res(ss.str());
 }
 
+void handleRequestString(es::val req, es::val res, es::val service) {
+    auto raw = service["getData"]().as<std::string>();
+
+    rj::Document document;
+    document.Parse(raw.c_str());
+
+    std::stringstream ss;
+    ss << "<div class=\"list\">";
+    const rj::Value& people = document["people"];
+    for (auto itr = people.Begin(); itr != people.End(); ++itr) {
+        ss << "<div class=\"person\">";
+        ss << "<span>" << (*itr)["name"].GetString() << "</span>";
+        ss << "</div>";
+    }
+    ss << "</div>";
+
+    res(ss.str());
+}
+
 EMSCRIPTEN_BINDINGS(my_module) {
-    function("handleRequest", &handleRequest);
+    function("handleRequestHyperscript", &handleRequestHyperscript);
+    function("handleRequestString", &handleRequestString);
 }
