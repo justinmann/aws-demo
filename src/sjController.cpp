@@ -66,14 +66,26 @@ struct {
     int refcount;
     int size;
     int count;
-    char data[7];
-} sjg_string19 = { 1, 7, 6, "</div>"};
+    char data[27];
+} sjg_string19 = { 1, 27, 26, "<div class=\"person\"><span>"};
 struct {
     int refcount;
     int size;
     int count;
     char data[106];
 } sjg_string2 = { 1, 106, 105, "{ \"people\" : [ { \"name\" : \"Justin\" },  { \"name\" : \"Joe\" },  { \"name\" : \"John\" },  { \"name\" : \"Jake\" } ] }"};
+struct {
+    int refcount;
+    int size;
+    int count;
+    char data[14];
+} sjg_string20 = { 1, 14, 13, "</span></div>"};
+struct {
+    int refcount;
+    int size;
+    int count;
+    char data[7];
+} sjg_string21 = { 1, 7, 6, "</div>"};
 struct {
     int refcount;
     int size;
@@ -2631,10 +2643,27 @@ void sjf_handlerequesthyperscript_heap(sjs_string** _return) {
 
 void sjf_handlerequeststring(sjs_string* _return) {
     sjs_string html = { -1 };
-    sjs_string sjt_call62 = { -1 };
-    sjs_string sjt_funcold19 = { -1 };
+    int32_t i;
+    sjs_json_value model = { -1 };
+    sjs_array_value people = { -1 };
+    sjs_json_value sjt_call62 = { -1 };
+    sjs_string sjt_call63 = { -1 };
+    sjs_json_value sjt_call64 = { -1 };
+    sjs_string sjt_call65 = { -1 };
+    sjs_json_value sjt_call66 = { -1 };
+    sjs_string sjt_call67 = { -1 };
+    sjs_json_value sjt_call68 = { -1 };
+    sjs_string sjt_call69 = { -1 };
+    sjs_string sjt_call80 = { -1 };
+    sjs_array_value* sjt_capture62 = 0;
+    sjs_json_value* sjt_capture63 = 0;
+    int32_t sjt_forEnd9;
+    int32_t sjt_forStart9;
+    sjs_string sjt_funcold20 = { -1 };
     sjs_string* sjt_functionParam181 = 0;
-    sjs_string* sjt_parent111 = 0;
+    sjs_string* sjt_functionParam192 = 0;
+    sjs_array_value* sjt_parent115 = 0;
+    sjs_string* sjt_parent123 = 0;
     sjs_string test = { -1 };
 
     test._refCount = 1;
@@ -2652,9 +2681,13 @@ void sjf_handlerequeststring(sjs_string* _return) {
     test._isnullterminated = false;
 #line 16
     sjf_string(&test);
-#line 16
+#line 23 "sjController.sj"
+    sjt_functionParam181 = &test;
+#line 23
+    sjf_json_parse(sjt_functionParam181, &model);
+#line 23
     html._refCount = 1;
-#line 25 "sjController.sj"
+#line 25
     html.offset = 0;
 #line 25
     html.count = 18;
@@ -2668,33 +2701,391 @@ void sjf_handlerequeststring(sjs_string* _return) {
     html._isnullterminated = false;
 #line 16
     sjf_string(&html);
-#line 18
-    sjt_parent111 = &html;
-#line 18
-    sjt_call62._refCount = 1;
-#line 31 "sjController.sj"
-    sjt_call62.offset = 0;
-#line 31
-    sjt_call62.count = 6;
-#line 31
-    sjt_call62.data._refCount = 1;
-#line 31
-    sjt_call62.data.v = &sjg_string19;
-#line 31
-    sjf_array_char(&sjt_call62.data);
+    if ((model._refCount != -1 ? &model : 0) != 0) {
+        sjs_string* sjt_functionParam182 = 0;
+        sjs_json_value* sjt_parent111 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+        sjt_parent111 = (model._refCount != -1 ? &model : 0);
+#line 7
+        sjt_call63._refCount = 1;
+#line 26 "sjController.sj"
+        sjt_call63.offset = 0;
+#line 26
+        sjt_call63.count = 6;
+#line 26
+        sjt_call63.data._refCount = 1;
+#line 26
+        sjt_call63.data.v = &sjg_string8;
+#line 26
+        sjf_array_char(&sjt_call63.data);
 #line 16 "lib/sj-lib-common/string.sj"
-    sjt_call62._isnullterminated = false;
+        sjt_call63._isnullterminated = false;
 #line 16
-    sjf_string(&sjt_call62);
+        sjf_string(&sjt_call63);
+#line 26 "sjController.sj"
+        sjt_functionParam182 = &sjt_call63;
+#line 26
+        sjf_json_value_getat(sjt_parent111, sjt_functionParam182, &sjt_call62);
+#line 26
+        sjt_capture63 = (sjt_call62._refCount != -1 ? &sjt_call62 : 0);
+    } else {
+#line 26 "sjController.sj"
+        sjt_capture63 = 0;
+    }
+
+    if (sjt_capture63 != 0) {
+        sjs_json_value* sjt_capture64 = 0;
+
+        if ((model._refCount != -1 ? &model : 0) != 0) {
+            sjs_string* sjt_functionParam183 = 0;
+            sjs_json_value* sjt_parent112 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+            sjt_parent112 = (model._refCount != -1 ? &model : 0);
+#line 7
+            sjt_call65._refCount = 1;
+#line 26 "sjController.sj"
+            sjt_call65.offset = 0;
+#line 26
+            sjt_call65.count = 6;
+#line 26
+            sjt_call65.data._refCount = 1;
+#line 26
+            sjt_call65.data.v = &sjg_string8;
+#line 26
+            sjf_array_char(&sjt_call65.data);
+#line 16 "lib/sj-lib-common/string.sj"
+            sjt_call65._isnullterminated = false;
+#line 16
+            sjf_string(&sjt_call65);
+#line 26 "sjController.sj"
+            sjt_functionParam183 = &sjt_call65;
+#line 26
+            sjf_json_value_getat(sjt_parent112, sjt_functionParam183, &sjt_call64);
+#line 26
+            sjt_capture64 = (sjt_call64._refCount != -1 ? &sjt_call64 : 0);
+        } else {
+#line 26 "sjController.sj"
+            sjt_capture64 = 0;
+        }
+
+#line 26 "sjController.sj"
+        sjt_capture62 = (sjt_capture64->a._refCount != -1 ? &sjt_capture64->a : 0);
+    } else {
+#line 26 "sjController.sj"
+        sjt_capture62 = 0;
+    }
+
+    if (sjt_capture62 != 0) {
+        sjs_json_value* sjt_capture65 = 0;
+
+        if ((model._refCount != -1 ? &model : 0) != 0) {
+            sjs_string* sjt_functionParam184 = 0;
+            sjs_json_value* sjt_parent113 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+            sjt_parent113 = (model._refCount != -1 ? &model : 0);
+#line 7
+            sjt_call67._refCount = 1;
+#line 26 "sjController.sj"
+            sjt_call67.offset = 0;
+#line 26
+            sjt_call67.count = 6;
+#line 26
+            sjt_call67.data._refCount = 1;
+#line 26
+            sjt_call67.data.v = &sjg_string8;
+#line 26
+            sjf_array_char(&sjt_call67.data);
+#line 16 "lib/sj-lib-common/string.sj"
+            sjt_call67._isnullterminated = false;
+#line 16
+            sjf_string(&sjt_call67);
+#line 26 "sjController.sj"
+            sjt_functionParam184 = &sjt_call67;
+#line 26
+            sjf_json_value_getat(sjt_parent113, sjt_functionParam184, &sjt_call66);
+#line 26
+            sjt_capture65 = (sjt_call66._refCount != -1 ? &sjt_call66 : 0);
+        } else {
+#line 26 "sjController.sj"
+            sjt_capture65 = 0;
+        }
+
+        if (sjt_capture65 != 0) {
+            sjs_json_value* sjt_capture66 = 0;
+
+            if ((model._refCount != -1 ? &model : 0) != 0) {
+                sjs_string* sjt_functionParam185 = 0;
+                sjs_json_value* sjt_parent114 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+                sjt_parent114 = (model._refCount != -1 ? &model : 0);
+#line 7
+                sjt_call69._refCount = 1;
+#line 26 "sjController.sj"
+                sjt_call69.offset = 0;
+#line 26
+                sjt_call69.count = 6;
+#line 26
+                sjt_call69.data._refCount = 1;
+#line 26
+                sjt_call69.data.v = &sjg_string8;
+#line 26
+                sjf_array_char(&sjt_call69.data);
+#line 16 "lib/sj-lib-common/string.sj"
+                sjt_call69._isnullterminated = false;
+#line 16
+                sjf_string(&sjt_call69);
+#line 26 "sjController.sj"
+                sjt_functionParam185 = &sjt_call69;
+#line 26
+                sjf_json_value_getat(sjt_parent114, sjt_functionParam185, &sjt_call68);
+#line 26
+                sjt_capture66 = (sjt_call68._refCount != -1 ? &sjt_call68 : 0);
+            } else {
+#line 26 "sjController.sj"
+                sjt_capture66 = 0;
+            }
+
+#line 26 "sjController.sj"
+            sjs_array_value* copyoption41 = (sjt_capture66->a._refCount != -1 ? &sjt_capture66->a : 0);
+            if (copyoption41 != 0) {
+                people._refCount = 1;
+#line 26 "sjController.sj"
+                sjf_array_value_copy(&people, copyoption41);
+            } else {
+                people._refCount = -1;
+            }
+        } else {
+#line 26 "sjController.sj"
+            people._refCount = -1;
+        }
+    } else {
+        people._refCount = 1;
+#line 27 "lib/sj-lib-common/array.sj"
+        people.v = 0;
+#line 27
+        sjf_array_value(&people);
+    }
+
+#line 27 "sjController.sj"
+    sjt_forStart9 = 0;
+#line 29 "lib/sj-lib-common/array.sj"
+    sjt_parent115 = &people;
+#line 29
+    sjf_array_value_getcount(sjt_parent115, &sjt_forEnd9);
+#line 27 "sjController.sj"
+    i = sjt_forStart9;
+    while (i < sjt_forEnd9) {
+        sjs_json_value person = { -1 };
+        sjs_string sjt_call70 = { -1 };
+        sjs_string sjt_call71 = { -1 };
+        sjs_string sjt_call72 = { -1 };
+        sjs_string sjt_call73 = { -1 };
+        sjs_json_value sjt_call74 = { -1 };
+        sjs_string sjt_call75 = { -1 };
+        sjs_json_value sjt_call76 = { -1 };
+        sjs_string sjt_call77 = { -1 };
+        sjs_json_value sjt_call78 = { -1 };
+        sjs_string sjt_call79 = { -1 };
+        sjs_string sjt_funcold19 = { -1 };
+        int32_t sjt_functionParam186;
+        sjs_string* sjt_functionParam187 = 0;
+        sjs_string* sjt_functionParam188 = 0;
+        sjs_string* sjt_functionParam189 = 0;
+        sjs_string* sjt_functionParam191 = 0;
+        sjs_array_value* sjt_parent116 = 0;
+        sjs_string* sjt_parent117 = 0;
+        sjs_string* sjt_parent118 = 0;
+        sjs_string* sjt_parent119 = 0;
+        sjs_json_value* sjt_parent120 = 0;
+        sjs_json_value* sjt_parent121 = 0;
+
+#line 41 "lib/sj-lib-common/array.sj"
+        sjt_parent116 = &people;
+#line 27 "sjController.sj"
+        sjt_functionParam186 = i;
+#line 27
+        sjf_array_value_getat(sjt_parent116, sjt_functionParam186, &person);
+#line 18 "lib/sj-lib-common/string.sj"
+        sjt_parent117 = &html;
+#line 18
+        sjt_call72._refCount = 1;
+#line 29 "sjController.sj"
+        sjt_call72.offset = 0;
+#line 29
+        sjt_call72.count = 26;
+#line 29
+        sjt_call72.data._refCount = 1;
+#line 29
+        sjt_call72.data.v = &sjg_string19;
+#line 29
+        sjf_array_char(&sjt_call72.data);
+#line 16 "lib/sj-lib-common/string.sj"
+        sjt_call72._isnullterminated = false;
+#line 16
+        sjf_string(&sjt_call72);
+#line 29 "sjController.sj"
+        sjt_parent119 = &sjt_call72;
+#line 7 "lib/sj-lib-json/value.sj"
+        sjt_parent121 = &person;
+#line 7
+        sjt_call75._refCount = 1;
+#line 29 "sjController.sj"
+        sjt_call75.offset = 0;
+#line 29
+        sjt_call75.count = 4;
+#line 29
+        sjt_call75.data._refCount = 1;
+#line 29
+        sjt_call75.data.v = &sjg_string11;
+#line 29
+        sjf_array_char(&sjt_call75.data);
+#line 16 "lib/sj-lib-common/string.sj"
+        sjt_call75._isnullterminated = false;
+#line 16
+        sjf_string(&sjt_call75);
+#line 29 "sjController.sj"
+        sjt_functionParam189 = &sjt_call75;
+#line 29
+        sjf_json_value_getat(sjt_parent121, sjt_functionParam189, &sjt_call74);
+        if ((sjt_call74._refCount != -1 ? &sjt_call74 : 0) != 0) {
+            sjs_string* sjt_functionParam190 = 0;
+            sjs_json_value* sjt_parent122 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+            sjt_parent122 = &person;
+#line 7
+            sjt_call77._refCount = 1;
+#line 29 "sjController.sj"
+            sjt_call77.offset = 0;
+#line 29
+            sjt_call77.count = 4;
+#line 29
+            sjt_call77.data._refCount = 1;
+#line 29
+            sjt_call77.data.v = &sjg_string11;
+#line 29
+            sjf_array_char(&sjt_call77.data);
+#line 16 "lib/sj-lib-common/string.sj"
+            sjt_call77._isnullterminated = false;
+#line 16
+            sjf_string(&sjt_call77);
+#line 29 "sjController.sj"
+            sjt_functionParam190 = &sjt_call77;
+#line 29
+            sjf_json_value_getat(sjt_parent122, sjt_functionParam190, &sjt_call76);
+#line 29
+            sjt_parent120 = (sjt_call76._refCount != -1 ? &sjt_call76 : 0);
+        } else {
+            sjt_call78._refCount = 1;
+#line 3 "lib/sj-lib-json/value.sj"
+            sjt_call78.s._refCount = -1;
+#line 4
+            sjt_call78.a._refCount = -1;
+#line 5
+            sjt_call78.h._refCount = -1;
+#line 5
+            sjf_json_value(&sjt_call78);
+#line 29 "sjController.sj"
+            sjt_parent120 = &sjt_call78;
+        }
+
+#line 29
+        sjf_json_value_asstring(sjt_parent120, &sjt_call73);
+#line 29
+        sjt_functionParam188 = &sjt_call73;
+#line 29
+        sjf_string_add(sjt_parent119, sjt_functionParam188, &sjt_call71);
+#line 29
+        sjt_parent118 = &sjt_call71;
+#line 29
+        sjt_call79._refCount = 1;
+#line 29
+        sjt_call79.offset = 0;
+#line 29
+        sjt_call79.count = 13;
+#line 29
+        sjt_call79.data._refCount = 1;
+#line 29
+        sjt_call79.data.v = &sjg_string20;
+#line 29
+        sjf_array_char(&sjt_call79.data);
+#line 16 "lib/sj-lib-common/string.sj"
+        sjt_call79._isnullterminated = false;
+#line 16
+        sjf_string(&sjt_call79);
+#line 29 "sjController.sj"
+        sjt_functionParam191 = &sjt_call79;
+#line 29
+        sjf_string_add(sjt_parent118, sjt_functionParam191, &sjt_call70);
+#line 29
+        sjt_functionParam187 = &sjt_call70;
+#line 29
+        sjf_string_add(sjt_parent117, sjt_functionParam187, &sjt_funcold19);
+#line 29
+        if (html._refCount == 1) { sjf_string_destroy(&html); }
+;
+#line 18 "lib/sj-lib-common/string.sj"
+        sjf_string_copy(&html, &sjt_funcold19);
+#line 27 "sjController.sj"
+        i++;
+
+        if (person._refCount == 1) { sjf_json_value_destroy(&person); }
+;
+        if (sjt_call70._refCount == 1) { sjf_string_destroy(&sjt_call70); }
+;
+        if (sjt_call71._refCount == 1) { sjf_string_destroy(&sjt_call71); }
+;
+        if (sjt_call72._refCount == 1) { sjf_string_destroy(&sjt_call72); }
+;
+        if (sjt_call73._refCount == 1) { sjf_string_destroy(&sjt_call73); }
+;
+        if (sjt_call74._refCount == 1) { sjf_json_value_destroy(&sjt_call74); }
+;
+        if (sjt_call75._refCount == 1) { sjf_string_destroy(&sjt_call75); }
+;
+        if (sjt_call76._refCount == 1) { sjf_json_value_destroy(&sjt_call76); }
+;
+        if (sjt_call77._refCount == 1) { sjf_string_destroy(&sjt_call77); }
+;
+        if (sjt_call78._refCount == 1) { sjf_json_value_destroy(&sjt_call78); }
+;
+        if (sjt_call79._refCount == 1) { sjf_string_destroy(&sjt_call79); }
+;
+        if (sjt_funcold19._refCount == 1) { sjf_string_destroy(&sjt_funcold19); }
+;
+    }
+
+#line 18 "lib/sj-lib-common/string.sj"
+    sjt_parent123 = &html;
+#line 18
+    sjt_call80._refCount = 1;
 #line 31 "sjController.sj"
-    sjt_functionParam181 = &sjt_call62;
+    sjt_call80.offset = 0;
 #line 31
-    sjf_string_add(sjt_parent111, sjt_functionParam181, &sjt_funcold19);
+    sjt_call80.count = 6;
+#line 31
+    sjt_call80.data._refCount = 1;
+#line 31
+    sjt_call80.data.v = &sjg_string21;
+#line 31
+    sjf_array_char(&sjt_call80.data);
+#line 16 "lib/sj-lib-common/string.sj"
+    sjt_call80._isnullterminated = false;
+#line 16
+    sjf_string(&sjt_call80);
+#line 31 "sjController.sj"
+    sjt_functionParam192 = &sjt_call80;
+#line 31
+    sjf_string_add(sjt_parent123, sjt_functionParam192, &sjt_funcold20);
 #line 31
     if (html._refCount == 1) { sjf_string_destroy(&html); }
 ;
 #line 18 "lib/sj-lib-common/string.sj"
-    sjf_string_copy(&html, &sjt_funcold19);
+    sjf_string_copy(&html, &sjt_funcold20);
 #line 18
     _return->_refCount = 1;
 #line 21 "sjController.sj"
@@ -2702,9 +3093,29 @@ void sjf_handlerequeststring(sjs_string* _return) {
 
     if (html._refCount == 1) { sjf_string_destroy(&html); }
 ;
-    if (sjt_call62._refCount == 1) { sjf_string_destroy(&sjt_call62); }
+    if (model._refCount == 1) { sjf_json_value_destroy(&model); }
 ;
-    if (sjt_funcold19._refCount == 1) { sjf_string_destroy(&sjt_funcold19); }
+    if (people._refCount == 1) { sjf_array_value_destroy(&people); }
+;
+    if (sjt_call62._refCount == 1) { sjf_json_value_destroy(&sjt_call62); }
+;
+    if (sjt_call63._refCount == 1) { sjf_string_destroy(&sjt_call63); }
+;
+    if (sjt_call64._refCount == 1) { sjf_json_value_destroy(&sjt_call64); }
+;
+    if (sjt_call65._refCount == 1) { sjf_string_destroy(&sjt_call65); }
+;
+    if (sjt_call66._refCount == 1) { sjf_json_value_destroy(&sjt_call66); }
+;
+    if (sjt_call67._refCount == 1) { sjf_string_destroy(&sjt_call67); }
+;
+    if (sjt_call68._refCount == 1) { sjf_json_value_destroy(&sjt_call68); }
+;
+    if (sjt_call69._refCount == 1) { sjf_string_destroy(&sjt_call69); }
+;
+    if (sjt_call80._refCount == 1) { sjf_string_destroy(&sjt_call80); }
+;
+    if (sjt_funcold20._refCount == 1) { sjf_string_destroy(&sjt_funcold20); }
 ;
     if (test._refCount == 1) { sjf_string_destroy(&test); }
 ;
@@ -2712,10 +3123,27 @@ void sjf_handlerequeststring(sjs_string* _return) {
 
 void sjf_handlerequeststring_heap(sjs_string** _return) {
     sjs_string html = { -1 };
-    sjs_string sjt_call63 = { -1 };
-    sjs_string sjt_funcold20 = { -1 };
-    sjs_string* sjt_functionParam182 = 0;
-    sjs_string* sjt_parent112 = 0;
+    int32_t i;
+    sjs_json_value model = { -1 };
+    sjs_array_value people = { -1 };
+    sjs_json_value sjt_call81 = { -1 };
+    sjs_string sjt_call82 = { -1 };
+    sjs_json_value sjt_call83 = { -1 };
+    sjs_string sjt_call84 = { -1 };
+    sjs_json_value sjt_call85 = { -1 };
+    sjs_string sjt_call86 = { -1 };
+    sjs_json_value sjt_call87 = { -1 };
+    sjs_string sjt_call88 = { -1 };
+    sjs_string sjt_call99 = { -1 };
+    sjs_array_value* sjt_capture67 = 0;
+    sjs_json_value* sjt_capture68 = 0;
+    int32_t sjt_forEnd10;
+    int32_t sjt_forStart10;
+    sjs_string sjt_funcold22 = { -1 };
+    sjs_string* sjt_functionParam193 = 0;
+    sjs_string* sjt_functionParam204 = 0;
+    sjs_array_value* sjt_parent128 = 0;
+    sjs_string* sjt_parent136 = 0;
     sjs_string test = { -1 };
 
     test._refCount = 1;
@@ -2733,9 +3161,13 @@ void sjf_handlerequeststring_heap(sjs_string** _return) {
     test._isnullterminated = false;
 #line 16
     sjf_string(&test);
-#line 16
+#line 23 "sjController.sj"
+    sjt_functionParam193 = &test;
+#line 23
+    sjf_json_parse(sjt_functionParam193, &model);
+#line 23
     html._refCount = 1;
-#line 25 "sjController.sj"
+#line 25
     html.offset = 0;
 #line 25
     html.count = 18;
@@ -2749,33 +3181,391 @@ void sjf_handlerequeststring_heap(sjs_string** _return) {
     html._isnullterminated = false;
 #line 16
     sjf_string(&html);
-#line 18
-    sjt_parent112 = &html;
-#line 18
-    sjt_call63._refCount = 1;
-#line 31 "sjController.sj"
-    sjt_call63.offset = 0;
-#line 31
-    sjt_call63.count = 6;
-#line 31
-    sjt_call63.data._refCount = 1;
-#line 31
-    sjt_call63.data.v = &sjg_string19;
-#line 31
-    sjf_array_char(&sjt_call63.data);
+    if ((model._refCount != -1 ? &model : 0) != 0) {
+        sjs_string* sjt_functionParam194 = 0;
+        sjs_json_value* sjt_parent124 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+        sjt_parent124 = (model._refCount != -1 ? &model : 0);
+#line 7
+        sjt_call82._refCount = 1;
+#line 26 "sjController.sj"
+        sjt_call82.offset = 0;
+#line 26
+        sjt_call82.count = 6;
+#line 26
+        sjt_call82.data._refCount = 1;
+#line 26
+        sjt_call82.data.v = &sjg_string8;
+#line 26
+        sjf_array_char(&sjt_call82.data);
 #line 16 "lib/sj-lib-common/string.sj"
-    sjt_call63._isnullterminated = false;
+        sjt_call82._isnullterminated = false;
 #line 16
-    sjf_string(&sjt_call63);
+        sjf_string(&sjt_call82);
+#line 26 "sjController.sj"
+        sjt_functionParam194 = &sjt_call82;
+#line 26
+        sjf_json_value_getat(sjt_parent124, sjt_functionParam194, &sjt_call81);
+#line 26
+        sjt_capture68 = (sjt_call81._refCount != -1 ? &sjt_call81 : 0);
+    } else {
+#line 26 "sjController.sj"
+        sjt_capture68 = 0;
+    }
+
+    if (sjt_capture68 != 0) {
+        sjs_json_value* sjt_capture69 = 0;
+
+        if ((model._refCount != -1 ? &model : 0) != 0) {
+            sjs_string* sjt_functionParam195 = 0;
+            sjs_json_value* sjt_parent125 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+            sjt_parent125 = (model._refCount != -1 ? &model : 0);
+#line 7
+            sjt_call84._refCount = 1;
+#line 26 "sjController.sj"
+            sjt_call84.offset = 0;
+#line 26
+            sjt_call84.count = 6;
+#line 26
+            sjt_call84.data._refCount = 1;
+#line 26
+            sjt_call84.data.v = &sjg_string8;
+#line 26
+            sjf_array_char(&sjt_call84.data);
+#line 16 "lib/sj-lib-common/string.sj"
+            sjt_call84._isnullterminated = false;
+#line 16
+            sjf_string(&sjt_call84);
+#line 26 "sjController.sj"
+            sjt_functionParam195 = &sjt_call84;
+#line 26
+            sjf_json_value_getat(sjt_parent125, sjt_functionParam195, &sjt_call83);
+#line 26
+            sjt_capture69 = (sjt_call83._refCount != -1 ? &sjt_call83 : 0);
+        } else {
+#line 26 "sjController.sj"
+            sjt_capture69 = 0;
+        }
+
+#line 26 "sjController.sj"
+        sjt_capture67 = (sjt_capture69->a._refCount != -1 ? &sjt_capture69->a : 0);
+    } else {
+#line 26 "sjController.sj"
+        sjt_capture67 = 0;
+    }
+
+    if (sjt_capture67 != 0) {
+        sjs_json_value* sjt_capture70 = 0;
+
+        if ((model._refCount != -1 ? &model : 0) != 0) {
+            sjs_string* sjt_functionParam196 = 0;
+            sjs_json_value* sjt_parent126 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+            sjt_parent126 = (model._refCount != -1 ? &model : 0);
+#line 7
+            sjt_call86._refCount = 1;
+#line 26 "sjController.sj"
+            sjt_call86.offset = 0;
+#line 26
+            sjt_call86.count = 6;
+#line 26
+            sjt_call86.data._refCount = 1;
+#line 26
+            sjt_call86.data.v = &sjg_string8;
+#line 26
+            sjf_array_char(&sjt_call86.data);
+#line 16 "lib/sj-lib-common/string.sj"
+            sjt_call86._isnullterminated = false;
+#line 16
+            sjf_string(&sjt_call86);
+#line 26 "sjController.sj"
+            sjt_functionParam196 = &sjt_call86;
+#line 26
+            sjf_json_value_getat(sjt_parent126, sjt_functionParam196, &sjt_call85);
+#line 26
+            sjt_capture70 = (sjt_call85._refCount != -1 ? &sjt_call85 : 0);
+        } else {
+#line 26 "sjController.sj"
+            sjt_capture70 = 0;
+        }
+
+        if (sjt_capture70 != 0) {
+            sjs_json_value* sjt_capture71 = 0;
+
+            if ((model._refCount != -1 ? &model : 0) != 0) {
+                sjs_string* sjt_functionParam197 = 0;
+                sjs_json_value* sjt_parent127 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+                sjt_parent127 = (model._refCount != -1 ? &model : 0);
+#line 7
+                sjt_call88._refCount = 1;
+#line 26 "sjController.sj"
+                sjt_call88.offset = 0;
+#line 26
+                sjt_call88.count = 6;
+#line 26
+                sjt_call88.data._refCount = 1;
+#line 26
+                sjt_call88.data.v = &sjg_string8;
+#line 26
+                sjf_array_char(&sjt_call88.data);
+#line 16 "lib/sj-lib-common/string.sj"
+                sjt_call88._isnullterminated = false;
+#line 16
+                sjf_string(&sjt_call88);
+#line 26 "sjController.sj"
+                sjt_functionParam197 = &sjt_call88;
+#line 26
+                sjf_json_value_getat(sjt_parent127, sjt_functionParam197, &sjt_call87);
+#line 26
+                sjt_capture71 = (sjt_call87._refCount != -1 ? &sjt_call87 : 0);
+            } else {
+#line 26 "sjController.sj"
+                sjt_capture71 = 0;
+            }
+
+#line 26 "sjController.sj"
+            sjs_array_value* copyoption42 = (sjt_capture71->a._refCount != -1 ? &sjt_capture71->a : 0);
+            if (copyoption42 != 0) {
+                people._refCount = 1;
+#line 26 "sjController.sj"
+                sjf_array_value_copy(&people, copyoption42);
+            } else {
+                people._refCount = -1;
+            }
+        } else {
+#line 26 "sjController.sj"
+            people._refCount = -1;
+        }
+    } else {
+        people._refCount = 1;
+#line 27 "lib/sj-lib-common/array.sj"
+        people.v = 0;
+#line 27
+        sjf_array_value(&people);
+    }
+
+#line 27 "sjController.sj"
+    sjt_forStart10 = 0;
+#line 29 "lib/sj-lib-common/array.sj"
+    sjt_parent128 = &people;
+#line 29
+    sjf_array_value_getcount(sjt_parent128, &sjt_forEnd10);
+#line 27 "sjController.sj"
+    i = sjt_forStart10;
+    while (i < sjt_forEnd10) {
+        sjs_json_value person = { -1 };
+        sjs_string sjt_call89 = { -1 };
+        sjs_string sjt_call90 = { -1 };
+        sjs_string sjt_call91 = { -1 };
+        sjs_string sjt_call92 = { -1 };
+        sjs_json_value sjt_call93 = { -1 };
+        sjs_string sjt_call94 = { -1 };
+        sjs_json_value sjt_call95 = { -1 };
+        sjs_string sjt_call96 = { -1 };
+        sjs_json_value sjt_call97 = { -1 };
+        sjs_string sjt_call98 = { -1 };
+        sjs_string sjt_funcold21 = { -1 };
+        int32_t sjt_functionParam198;
+        sjs_string* sjt_functionParam199 = 0;
+        sjs_string* sjt_functionParam200 = 0;
+        sjs_string* sjt_functionParam201 = 0;
+        sjs_string* sjt_functionParam203 = 0;
+        sjs_array_value* sjt_parent129 = 0;
+        sjs_string* sjt_parent130 = 0;
+        sjs_string* sjt_parent131 = 0;
+        sjs_string* sjt_parent132 = 0;
+        sjs_json_value* sjt_parent133 = 0;
+        sjs_json_value* sjt_parent134 = 0;
+
+#line 41 "lib/sj-lib-common/array.sj"
+        sjt_parent129 = &people;
+#line 27 "sjController.sj"
+        sjt_functionParam198 = i;
+#line 27
+        sjf_array_value_getat(sjt_parent129, sjt_functionParam198, &person);
+#line 18 "lib/sj-lib-common/string.sj"
+        sjt_parent130 = &html;
+#line 18
+        sjt_call91._refCount = 1;
+#line 29 "sjController.sj"
+        sjt_call91.offset = 0;
+#line 29
+        sjt_call91.count = 26;
+#line 29
+        sjt_call91.data._refCount = 1;
+#line 29
+        sjt_call91.data.v = &sjg_string19;
+#line 29
+        sjf_array_char(&sjt_call91.data);
+#line 16 "lib/sj-lib-common/string.sj"
+        sjt_call91._isnullterminated = false;
+#line 16
+        sjf_string(&sjt_call91);
+#line 29 "sjController.sj"
+        sjt_parent132 = &sjt_call91;
+#line 7 "lib/sj-lib-json/value.sj"
+        sjt_parent134 = &person;
+#line 7
+        sjt_call94._refCount = 1;
+#line 29 "sjController.sj"
+        sjt_call94.offset = 0;
+#line 29
+        sjt_call94.count = 4;
+#line 29
+        sjt_call94.data._refCount = 1;
+#line 29
+        sjt_call94.data.v = &sjg_string11;
+#line 29
+        sjf_array_char(&sjt_call94.data);
+#line 16 "lib/sj-lib-common/string.sj"
+        sjt_call94._isnullterminated = false;
+#line 16
+        sjf_string(&sjt_call94);
+#line 29 "sjController.sj"
+        sjt_functionParam201 = &sjt_call94;
+#line 29
+        sjf_json_value_getat(sjt_parent134, sjt_functionParam201, &sjt_call93);
+        if ((sjt_call93._refCount != -1 ? &sjt_call93 : 0) != 0) {
+            sjs_string* sjt_functionParam202 = 0;
+            sjs_json_value* sjt_parent135 = 0;
+
+#line 7 "lib/sj-lib-json/value.sj"
+            sjt_parent135 = &person;
+#line 7
+            sjt_call96._refCount = 1;
+#line 29 "sjController.sj"
+            sjt_call96.offset = 0;
+#line 29
+            sjt_call96.count = 4;
+#line 29
+            sjt_call96.data._refCount = 1;
+#line 29
+            sjt_call96.data.v = &sjg_string11;
+#line 29
+            sjf_array_char(&sjt_call96.data);
+#line 16 "lib/sj-lib-common/string.sj"
+            sjt_call96._isnullterminated = false;
+#line 16
+            sjf_string(&sjt_call96);
+#line 29 "sjController.sj"
+            sjt_functionParam202 = &sjt_call96;
+#line 29
+            sjf_json_value_getat(sjt_parent135, sjt_functionParam202, &sjt_call95);
+#line 29
+            sjt_parent133 = (sjt_call95._refCount != -1 ? &sjt_call95 : 0);
+        } else {
+            sjt_call97._refCount = 1;
+#line 3 "lib/sj-lib-json/value.sj"
+            sjt_call97.s._refCount = -1;
+#line 4
+            sjt_call97.a._refCount = -1;
+#line 5
+            sjt_call97.h._refCount = -1;
+#line 5
+            sjf_json_value(&sjt_call97);
+#line 29 "sjController.sj"
+            sjt_parent133 = &sjt_call97;
+        }
+
+#line 29
+        sjf_json_value_asstring(sjt_parent133, &sjt_call92);
+#line 29
+        sjt_functionParam200 = &sjt_call92;
+#line 29
+        sjf_string_add(sjt_parent132, sjt_functionParam200, &sjt_call90);
+#line 29
+        sjt_parent131 = &sjt_call90;
+#line 29
+        sjt_call98._refCount = 1;
+#line 29
+        sjt_call98.offset = 0;
+#line 29
+        sjt_call98.count = 13;
+#line 29
+        sjt_call98.data._refCount = 1;
+#line 29
+        sjt_call98.data.v = &sjg_string20;
+#line 29
+        sjf_array_char(&sjt_call98.data);
+#line 16 "lib/sj-lib-common/string.sj"
+        sjt_call98._isnullterminated = false;
+#line 16
+        sjf_string(&sjt_call98);
+#line 29 "sjController.sj"
+        sjt_functionParam203 = &sjt_call98;
+#line 29
+        sjf_string_add(sjt_parent131, sjt_functionParam203, &sjt_call89);
+#line 29
+        sjt_functionParam199 = &sjt_call89;
+#line 29
+        sjf_string_add(sjt_parent130, sjt_functionParam199, &sjt_funcold21);
+#line 29
+        if (html._refCount == 1) { sjf_string_destroy(&html); }
+;
+#line 18 "lib/sj-lib-common/string.sj"
+        sjf_string_copy(&html, &sjt_funcold21);
+#line 27 "sjController.sj"
+        i++;
+
+        if (person._refCount == 1) { sjf_json_value_destroy(&person); }
+;
+        if (sjt_call89._refCount == 1) { sjf_string_destroy(&sjt_call89); }
+;
+        if (sjt_call90._refCount == 1) { sjf_string_destroy(&sjt_call90); }
+;
+        if (sjt_call91._refCount == 1) { sjf_string_destroy(&sjt_call91); }
+;
+        if (sjt_call92._refCount == 1) { sjf_string_destroy(&sjt_call92); }
+;
+        if (sjt_call93._refCount == 1) { sjf_json_value_destroy(&sjt_call93); }
+;
+        if (sjt_call94._refCount == 1) { sjf_string_destroy(&sjt_call94); }
+;
+        if (sjt_call95._refCount == 1) { sjf_json_value_destroy(&sjt_call95); }
+;
+        if (sjt_call96._refCount == 1) { sjf_string_destroy(&sjt_call96); }
+;
+        if (sjt_call97._refCount == 1) { sjf_json_value_destroy(&sjt_call97); }
+;
+        if (sjt_call98._refCount == 1) { sjf_string_destroy(&sjt_call98); }
+;
+        if (sjt_funcold21._refCount == 1) { sjf_string_destroy(&sjt_funcold21); }
+;
+    }
+
+#line 18 "lib/sj-lib-common/string.sj"
+    sjt_parent136 = &html;
+#line 18
+    sjt_call99._refCount = 1;
 #line 31 "sjController.sj"
-    sjt_functionParam182 = &sjt_call63;
+    sjt_call99.offset = 0;
 #line 31
-    sjf_string_add(sjt_parent112, sjt_functionParam182, &sjt_funcold20);
+    sjt_call99.count = 6;
+#line 31
+    sjt_call99.data._refCount = 1;
+#line 31
+    sjt_call99.data.v = &sjg_string21;
+#line 31
+    sjf_array_char(&sjt_call99.data);
+#line 16 "lib/sj-lib-common/string.sj"
+    sjt_call99._isnullterminated = false;
+#line 16
+    sjf_string(&sjt_call99);
+#line 31 "sjController.sj"
+    sjt_functionParam204 = &sjt_call99;
+#line 31
+    sjf_string_add(sjt_parent136, sjt_functionParam204, &sjt_funcold22);
 #line 31
     if (html._refCount == 1) { sjf_string_destroy(&html); }
 ;
 #line 18 "lib/sj-lib-common/string.sj"
-    sjf_string_copy(&html, &sjt_funcold20);
+    sjf_string_copy(&html, &sjt_funcold22);
 #line 18
     (*_return) = (sjs_string*)malloc(sizeof(sjs_string));
 #line 18
@@ -2785,9 +3575,29 @@ void sjf_handlerequeststring_heap(sjs_string** _return) {
 
     if (html._refCount == 1) { sjf_string_destroy(&html); }
 ;
-    if (sjt_call63._refCount == 1) { sjf_string_destroy(&sjt_call63); }
+    if (model._refCount == 1) { sjf_json_value_destroy(&model); }
 ;
-    if (sjt_funcold20._refCount == 1) { sjf_string_destroy(&sjt_funcold20); }
+    if (people._refCount == 1) { sjf_array_value_destroy(&people); }
+;
+    if (sjt_call81._refCount == 1) { sjf_json_value_destroy(&sjt_call81); }
+;
+    if (sjt_call82._refCount == 1) { sjf_string_destroy(&sjt_call82); }
+;
+    if (sjt_call83._refCount == 1) { sjf_json_value_destroy(&sjt_call83); }
+;
+    if (sjt_call84._refCount == 1) { sjf_string_destroy(&sjt_call84); }
+;
+    if (sjt_call85._refCount == 1) { sjf_json_value_destroy(&sjt_call85); }
+;
+    if (sjt_call86._refCount == 1) { sjf_string_destroy(&sjt_call86); }
+;
+    if (sjt_call87._refCount == 1) { sjf_json_value_destroy(&sjt_call87); }
+;
+    if (sjt_call88._refCount == 1) { sjf_string_destroy(&sjt_call88); }
+;
+    if (sjt_call99._refCount == 1) { sjf_string_destroy(&sjt_call99); }
+;
+    if (sjt_funcold22._refCount == 1) { sjf_string_destroy(&sjt_funcold22); }
 ;
     if (test._refCount == 1) { sjf_string_destroy(&test); }
 ;

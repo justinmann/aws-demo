@@ -9,6 +9,8 @@ export interface Module {
    asm : Assembly;
    handleRequestHyperscript(req: any, res: any, service: any) : void;
    handleRequestString(req: any, res: any, service: any) : void;
+   handleRequestStringStream(req: any, res: any, service: any) : void;
+   handleRequestPing(req: any, res: any, service: any) : void;
 }
 
 export interface ModuleLoader {

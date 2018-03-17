@@ -69,7 +69,7 @@ void handleRequestHyperscript(es::val req, es::val res, es::val service) {
     res(ss.str());
 }
 
-void handleRequestString(es::val req, es::val res, es::val service) {
+void handleRequestStringStream(es::val req, es::val res, es::val service) {
     auto raw = service["getData"]().as<std::string>();
 
     rj::Document document;
@@ -88,7 +88,35 @@ void handleRequestString(es::val req, es::val res, es::val service) {
     res(ss.str());
 }
 
+void handleRequestString(es::val req, es::val res, es::val service) {
+    auto raw = service["getData"]().as<std::string>();
+
+    rj::Document document;
+    document.Parse(raw.c_str());
+
+    std::string s;
+    s.reserve(50000);
+    s += "<div class=\"list\">";
+    const rj::Value& people = document["people"];
+    for (auto itr = people.Begin(); itr != people.End(); ++itr) {
+        s += "<div class=\"person\">";
+        s += "<span>";
+        s += (*itr)["name"].GetString();
+        s += "</span>";
+        s += "</div>";
+    }
+    s += "</div>";
+
+    res(s);
+}
+
+void handleRequestPing(es::val req, es::val res, es::val service) {
+    res(std::string("ok"));
+}
+
 EMSCRIPTEN_BINDINGS(my_module) {
     function("handleRequestHyperscript", &handleRequestHyperscript);
+    function("handleRequestStringStream", &handleRequestStringStream);
     function("handleRequestString", &handleRequestString);
+    function("handleRequestPing", &handleRequestPing);
 }

@@ -20,17 +20,16 @@ handleRequestHyperscript() {
 
 handleRequestString() {
     test : "{ \"people\" : [ { \"name\" : \"Justin\" },  { \"name\" : \"Joe\" },  { \"name\" : \"John\" },  { \"name\" : \"Jake\" } ] }"
-    // model : json.parse(test)
+    model : json.parse(test)
 
     html := "<div class=\"list\">";
-    // people : model["people"]?.a??
-    // for i : 0 to people.count {
-    //     person : people[i]
-    //     html += "<div class=\"person\"><span>" + person["name"]?? as string + "</span></div>"        
-    // }
+    people : model["people"]?.a??
+    for i : 0 to people.count {
+        person : people[i]
+        html += "<div class=\"person\"><span>" + person["name"]?? as string + "</span></div>"        
+    }
     html += "</div>"
     html
-    // "hi"
 }
 
 --cinclude--
