@@ -23,11 +23,12 @@
     "webpack-node-externals": "^1.6.0"
   },
   "scripts": {
-    "start": "npm run build && node dist/app.js",
-    "test": "npm run build && mocha dist/test.js --exit",
-    "build": "npm run build-emcc && npm run build-ts",
+    "start": "npm run build && pushd dist && node app.js && popd",
+    "test": "npm run build && mocha test.js --exit",
+    "build": "npm run build-emcc && npm run build-ts && npm run build-assets",
     "build-emcc": "em++ src/cppController.cpp -s WASM=1 -s MODULARIZE=1 -std=c++14 --bind -o dist/cppController.js",
-    "build-ts": "tsc"
+    "build-ts": "tsc",
+    "build-assets" : "cp src/test.json dist/test.json"
   },
   "dependencies": {
     "@types/chai": "^4.1.2",

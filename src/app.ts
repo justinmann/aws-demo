@@ -5,7 +5,7 @@ import jsController from "./jsController";
 import fakeService from "./fakeService";
 
 const cppController = cppWASM({
-    wasmBinaryFile : "dist/cppController.wasm"
+    // wasmBinaryFile : "dist/cppController.wasm"
 });
 
 const port = process.env.PORT || 3000;
