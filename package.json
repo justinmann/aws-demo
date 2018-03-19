@@ -23,9 +23,8 @@
     "webpack-node-externals": "^1.6.0"
   },
   "scripts": {
-    "start": "npm run build-sj && npm run build-app && node dist/app.js",
+    "start": "npm run build-app && node dist/app.js",
     "test": "npm run build-test && mocha dist/test.js --exit",
-    "build-sj": "pushd src && ../sjc sjController.sj && popd",
     "build-app": "webpack --config config/app.config.js",
     "build-test": "webpack --config config/test.config.js"
   },
